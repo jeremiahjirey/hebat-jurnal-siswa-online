@@ -4,6 +4,9 @@ import { useAuth } from '@/context/AuthContext';
 import LoginForm from '@/components/LoginForm';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
+import { Button } from '@/components/ui/button';
+import { Link } from 'react-router-dom';
+import { ArrowLeft } from 'lucide-react';
 
 export default function Login() {
   const { isAuthenticated } = useAuth();
@@ -22,6 +25,15 @@ export default function Login() {
       
       <div className="flex-grow container mx-auto px-4 py-12">
         <div className="max-w-md mx-auto">
+          <div className="mb-6">
+            <Link to="/">
+              <Button variant="outline" className="flex items-center gap-2">
+                <ArrowLeft size={16} />
+                Kembali ke Beranda
+              </Button>
+            </Link>
+          </div>
+          
           <div className="text-center mb-8">
             <h1 className="text-3xl font-bold text-hebat-primary mb-2">
               {loginType === 'admin' ? 'Login Admin' : 'Login Siswa'}
